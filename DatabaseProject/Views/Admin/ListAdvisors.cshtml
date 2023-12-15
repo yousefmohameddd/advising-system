@@ -1,0 +1,27 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+
+@model DataTable
+
+<h2>List of Advisors</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Advisor ID</th>
+            <th>Advisor Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DataRow row in Model.Rows)
+        {
+            <tr>
+                <td>@((int)row["advisor_id"])</td>
+                <td>@(row["advisor_name"].ToString())</td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+@Html.ActionLink("Back to Admin Dashboard", "AdminDashboard", "Admin", null, new { @class = "btn btn-secondary" })

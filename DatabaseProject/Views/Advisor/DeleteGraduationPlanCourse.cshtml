@@ -1,0 +1,66 @@
+﻿@model DatabaseProject.Models.GradPlanCourse
+
+@{
+    ViewBag.Title = "DeleteGraduationPlanCourse";
+}
+
+<h2>Delete Course from Graduation Plan</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+
+}
+
+@using (Html.BeginForm("advisorDeleteCourse", "Advisor",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.gradPlan.student.student_id, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.gradPlan.student.student_id, ViewData["studentData"] as SelectList, "Select Student",
+                    new { @class = "form-control", @name = "student_id" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.semester.semester_code, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.semester.semester_code, ViewData["semesterData"] as SelectList, "Select Semester",
+                    new { @class = "form-control", @name = "semester_code" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.course.course_id, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.course.course_id, ViewData["courseData"] as SelectList, "Select Course",
+                    new { @class = "form-control", @name = "course_id" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Delete Course from Graduation Plan" class="btn btn-default btn-danger" style="margin-top: 10px; margin-bottom: 10px" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to Main Page", "./Index")
+</div>

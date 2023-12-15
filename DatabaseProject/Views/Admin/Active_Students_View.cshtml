@@ -1,0 +1,231 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+
+@model DataTable
+
+<h2>Active Students</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Student First Name</th>
+            <th>Student Last Name</th>
+            <th>Password</th>
+            <th>Gpa</th>
+            <th>Faculty</th>
+            <th>Email</th>
+            <th>Major</th>
+            <th>Financial status</th>
+            <th>Semester</th>
+            <th>Acquired_hours</th>
+            <th>Assigned_hours</th>
+            <th>Advisor ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DataRow row in Model.Rows)
+        {
+            <tr>
+                <!-- Student ID -->
+                <td>
+                    @{
+                        var studentIDValue = row["student_id"];
+                        if (studentIDValue != DBNull.Value)
+                        {
+                            <text>@((int)studentIDValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- First Name -->
+                <td>
+                    @{
+                        var fNameValue = row["f_name"];
+                        if (fNameValue != DBNull.Value)
+                        {
+                            <text>@fNameValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Last Name -->
+                <td>
+                    @{
+                        var lNameValue = row["l_name"];
+                        if (lNameValue != DBNull.Value)
+                        {
+                            <text>@lNameValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Password -->
+                <td>
+                    @{
+                        var passwordValue = row["password"];
+                        if (passwordValue != DBNull.Value)
+                        {
+                            <text>@passwordValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- GPA -->
+                <td>
+                    @{
+                        var gpaValue = row["gpa"];
+                        if (gpaValue != DBNull.Value)
+                        {
+                            <text>@((decimal)gpaValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Faculty -->
+                <td>
+                    @{
+                        var facultyValue = row["faculty"];
+                        if (facultyValue != DBNull.Value)
+                        {
+                            <text>@facultyValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Email -->
+                <td>
+                    @{
+                        var emailValue = row["email"];
+                        if (emailValue != DBNull.Value)
+                        {
+                            <text>@emailValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Major -->
+                <td>
+                    @{
+                        var majorValue = row["major"];
+                        if (majorValue != DBNull.Value)
+                        {
+                            <text>@majorValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Financial Status -->
+                <td>
+                    @{
+                        var financialStatusValue = row["financial_status"];
+                        if (financialStatusValue != DBNull.Value)
+                        {
+                            <text>@((bool)financialStatusValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Semester -->
+                <td>
+                    @{
+                        var semesterValue = row["semester"];
+                        if (semesterValue != DBNull.Value)
+                        {
+                            <text>@((int)semesterValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Acquired Hours -->
+                <td>
+                    @{
+                        var acquiredHoursValue = row["acquired_hours"];
+                        if (acquiredHoursValue != DBNull.Value)
+                        {
+                            <text>@((int)acquiredHoursValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Assigned Hours -->
+                <td>
+                    @{
+                        var assignedHoursValue = row["assigned_hours"];
+                        if (assignedHoursValue != DBNull.Value)
+                        {
+                            <text>@((int)assignedHoursValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <td>
+                    @{
+                        var advisorIdValue = row["advisor_id"];
+                        if (advisorIdValue != DBNull.Value)
+                        {
+                            <text>@((int)advisorIdValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL </text>
+                        }
+                    }
+                </td>
+
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+@Html.ActionLink("Back to Admin Dashboard", "AdminDashboard", "Admin", null, new { @class = "btn btn-secondary" })
+

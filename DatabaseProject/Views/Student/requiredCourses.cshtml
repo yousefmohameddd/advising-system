@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DatabaseProject.Models.Course>
+
+@{
+    ViewBag.Title = "requiredCourses";
+}
+
+<h2>requiredCourses</h2>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10 ">
+        <input type="button" value="Back" class="btn btn-primary "  onclick="window.location.href = 'Student_Dashboard';" />
+    </div>
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.course_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.course_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+      
+    </tr>
+}
+
+</table>

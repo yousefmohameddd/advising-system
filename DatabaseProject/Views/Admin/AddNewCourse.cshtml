@@ -1,0 +1,59 @@
+﻿
+@model database.Models.CourseO
+
+@{
+    ViewBag.Title = "AddNewCourse";
+}
+
+<h2>Add Course</h2>
+
+
+
+@using (Html.BeginForm("AddNewCourse", "Admin", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(model => model.Major)
+        @Html.TextBoxFor(model => model.Major)
+        @Html.ValidationMessageFor(model => model.Major)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Semester)
+        @Html.TextBoxFor(model => model.Semester)
+        @Html.ValidationMessageFor(model => model.Semester)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.CreditHours)
+        @Html.TextBoxFor(model => model.CreditHours)
+        @Html.ValidationMessageFor(model => model.CreditHours)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.CourseName)
+        @Html.TextBoxFor(model => model.CourseName)
+        @Html.ValidationMessageFor(model => model.CourseName)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Offered)
+        @Html.CheckBoxFor(model => model.Offered)
+        @Html.ValidationMessageFor(model => model.Offered)
+    </div>
+
+    <div>
+        <input type="submit" value="Submit" />
+    </div>
+
+    if (!ViewData.ModelState.IsValid || ViewBag.ErrorMessage != null)
+    {
+        <p class="text-danger">Please fix the validation errors.</p>
+    }
+
+    if (TempData["SuccessMessage"] != null)
+    {
+        <p class="text-success">@TempData["SuccessMessage"]</p>
+    }
+
+}
+@Html.ActionLink("Back to Admin Dashboard", "AdminDashboard", "Admin", null, new { @class = "btn btn-secondary" })
+
+

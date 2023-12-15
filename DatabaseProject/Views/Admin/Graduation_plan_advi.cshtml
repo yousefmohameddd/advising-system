@@ -1,0 +1,134 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+
+@model DataTable
+
+<h2>Graduation Plan with Advisors</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Plan ID</th>
+            <th>Semester code</th>
+            <th>Semester credit hours</th>
+            <th>Expected graduation date</th>
+            <th>Advisor ID</th>
+            <th>Advisor name</th>
+            <th>Student ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DataRow row in Model.Rows)
+        {
+            <tr>
+                <!-- Plan ID -->
+                <td>
+                    @{
+                        var planIDValue = row["plan_id"];
+                        if (planIDValue != DBNull.Value)
+                        {
+                            <text>@((int)planIDValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Semester Code -->
+                <td>
+                    @{
+                        var semesterCodeValue = row["semester_code"];
+                        if (semesterCodeValue != DBNull.Value)
+                        {
+                            <text>@semesterCodeValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Semester Credit Hours -->
+                <td>
+                    @{
+                        var semesterCreditHoursValue = row["semester_credit_hours"];
+                        if (semesterCreditHoursValue != DBNull.Value)
+                        {
+                            <text>@((int)semesterCreditHoursValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Expected Graduation Date -->
+                <td>
+                    @{
+                        var expectedGradDateValue = row["expected_grad_date"];
+                        if (expectedGradDateValue != DBNull.Value)
+                        {
+                            <text>@((DateTime)expectedGradDateValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Advisor ID -->
+                <td>
+                    @{
+                        var advisorIDValue = row["advisor_id"];
+                        if (advisorIDValue != DBNull.Value)
+                        {
+                            <text>@((int)advisorIDValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Advisor Name -->
+                <td>
+                    @{
+                        var advisorNameValue = row["advisor_name"];
+                        if (advisorNameValue != DBNull.Value)
+                        {
+                            <text>@advisorNameValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Student ID -->
+                <td>
+                    @{
+                        var studentIDValue = row["student_id"];
+                        if (studentIDValue != DBNull.Value)
+                        {
+                            <text>@((int)studentIDValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+@Html.ActionLink("Back to Admin Dashboard", "AdminDashboard", "Admin", null, new { @class = "btn btn-secondary" })

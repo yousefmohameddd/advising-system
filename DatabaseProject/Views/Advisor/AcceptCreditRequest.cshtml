@@ -1,0 +1,59 @@
+﻿@model DatabaseProject.Models.RequestSemesterModel
+
+@{
+    ViewBag.Title = "AcceptCreditRequest";
+}
+
+<h2>Aceept Credit Hours Request</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+
+}
+
+@using (Html.BeginForm("advisorEditsCreditRequest","Advisor",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+       <div class="form-group">
+        @Html.LabelFor(model => model.request.request_id, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.request.request_id, ViewData["requestData"] as SelectList, "Select request",
+                    new { @class = "form-control", @name = "request_id" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.semester.semester_code, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.semester.semester_code, ViewData["semesterData"] as SelectList, "Select semester",
+                    new { @class = "form-control", @name = "semester_code" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Accept/Reject" class="btn btn-default btn-primary" style="margin-top:10px;margin-bottom:10px" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to Main Page", "./Index")
+</div>
+

@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Advisor Dashboard</h2>
+<table>
+    <tr>
+    </tr>
+    <tr>
+
+        <th>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="View Students" class="btn btn-default btn-primary" style="margin-top: 10px; margin-right: 20px; height: 60px; width: 300px" onclick="window.location.href = './ViewStudents';" />
+                </div>
+            </div>
+        </th>
+
+        <th>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Create Graduation Plan" class="btn btn-default  btn-primary" style="margin-top: 10px; height: 60px; width: 300px" onclick="window.location.href = './CreateGraduationPlan';" />
+                </div>
+            </div>
+        </th>
+
+        <th>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="View Pending Requests" class="btn btn-default  btn-primary" style="margin-top: 10px;height: 60px; width: 300px" onclick="window.location.href = './ViewPendingRequests';" />
+                </div>
+            </div>
+        </th>
+
+    </tr>
+    <tr>
+        <th>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="View Students from Certain Major" class="btn btn-default  btn-primary" style="margin-top: 10px; height: 60px; width: 300px; " onclick="window.location.href = './GetMajor';" />
+                </div>
+            </div>
+        </th>
+
+        <th>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Update Graduation Date" class="btn btn-default  btn-primary" style="margin-top: 10px; height: 60px; width: 300px; margin-right: 20px" onclick="window.location.href = './UpdateGraduationDate';" />
+                </div>
+            </div>
+        </th>
+        <th>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="View All Requests" class="btn btn-default  btn-primary" style="margin-top: 10px; height: 60px; width: 300px" onclick="window.location.href = './ViewRequests';" />
+                </div>
+            </div>
+        </th>
+
+
+
+
+
+    </tr>
+
+    <tr>
+
+        <th></th>
+        <th>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Insert Course into Graduation Plan" class="btn btn-default  btn-primary" style="margin-top: 10px; height: 60px; width: 300px" onclick="window.location.href = './InsertCourseIntoGraduationPlan';" />
+                </div>
+            </div>
+        </th>
+        <th>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Accept/Reject Course Request" class="btn btn-default  btn-primary" style="margin-top: 10px; height: 60px; width: 300px" onclick="window.location.href = './AcceptCourseRequest';" />
+                </div>
+            </div>
+        </th>
+
+
+    </tr>
+
+    <tr>
+        <th></th>
+        <th>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Delete Course From Graduation Plan" class="btn btn-default  btn-primary" style="margin-top: 10px; height: 60px; width: 300px" onclick="window.location.href = './DeleteGraduationPlanCourse';" />
+                </div>
+            </div>
+        </th>
+        <th>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Accept/Reject Credit Hours Request" class="btn btn-default  btn-primary" style="margin-top: 10px;height: 60px; width: 300px" onclick="window.location.href = './AcceptCreditRequest';" />
+                </div>
+            </div>
+        </th>
+
+
+
+    </tr>
+</table>
+
+
+
+@using (Html.BeginForm("Logout", "Advisor", FormMethod.Post))
+{
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Logout" class="btn btn-default btn-danger" style="margin-top: 10px; margin-bottom: 10px" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" value="Change user" class="btn btn-default  btn-success" onclick="window.location.pathname = 'Student/Main_Page';" />
+        </div>
+    </div>
+}

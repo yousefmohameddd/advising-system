@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "AdminDashboard";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Dashboard</title>
+
+   
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <h2> Welcome to the Admin Dashboard!</h2>
+
+        <div class="btn-container">
+            @Html.ActionLink("List Advisors", "ListAdvisors", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("List Student with Advisor", "StudentwithAdvisor", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Pending Requests", "PendingRequests", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Add Semester", "AddNewSem", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Add Course", "AddNewCourse", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Link Instructor To Course", "LinkInstructorToCourse", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Link Student To Advisor", "LinkStudentToAdvisor", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Link Student To a Course", "LinkStudentToCourse", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("View Instructor With Course", "InstructorWithCourses", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Semester with offered Courses", "SemestersWithCourses", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Delete Course", "Delete_Coursev", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Delete Slot", "Delete_Slot_View", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Add Makeup Exam", "Add_Exam_View", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("View Student's Payment details", "Student_Payment_View", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Issue Installments", "Issue_Insallments_View", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Update Fiancial Status", "Update_Fiancial_Status_View", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("View Active Students", "Active_Students_View", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Graduation Plan with Advisors", "Graduation_plan_advi", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Student's Transcripts", "STCC", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Semester Offered Courses", "SOCC", "Admin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Change User", "Main_Page", "Student", null, new { @class = "btn btn-success" })
+            @Html.ActionLink("Log Out", "Login", "Admin", null, new { @class = "btn btn-danger" })
+        </div>
+    </div>
+
+</body>
+</html>

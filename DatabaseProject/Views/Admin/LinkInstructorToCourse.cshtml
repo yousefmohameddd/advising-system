@@ -1,0 +1,38 @@
+﻿@model  database.Models.LinkInstructorView
+
+@{
+    ViewBag.Title = "LinkInstructorToCourse";
+}
+
+<h2>Link Instructor to Course</h2>
+
+@using (Html.BeginForm("LinkInstructorToCourse", "Admin", FormMethod.Post))
+{
+    @Html.LabelFor(model => model.InstructorId)
+    @Html.TextBoxFor(model => model.InstructorId)
+    <br />
+
+    @Html.LabelFor(model => model.CourseId)
+    @Html.TextBoxFor(model => model.CourseId)
+    <br />
+
+    @Html.LabelFor(model => model.SlotId)
+    @Html.TextBoxFor(model => model.SlotId)
+    <br />
+
+    <input type="submit" value="Link Instructor to Course With Specific slot" />
+
+
+    if (!ViewData.ModelState.IsValid || ViewBag.ErrorMessage != null)
+    {
+<p class="text-danger">Please fix the validation errors.</p>
+    }
+
+    if (TempData["SuccessMessage"] != null)
+    {
+<p class="text-success">@TempData["SuccessMessage"]</p>
+    }
+}
+
+
+@Html.ActionLink("Back to Admin Dashboard", "AdminDashboard", "Admin", null, new { @class = "btn btn-secondary" })

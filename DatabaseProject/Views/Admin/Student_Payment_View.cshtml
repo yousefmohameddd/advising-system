@@ -1,0 +1,199 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+
+@model DataTable
+
+<h2>Student's Payment Details</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Student First Name</th>
+            <th>Student Last Name</th>
+            <th>Payment ID</th>
+            <th>Amount</th>
+            <th>Deadline</th>
+            <th>N_Installments</th>
+            <th>Status</th>
+            <th>Fund Percentage</th>
+            <th>Start Date</th>
+            <th>Semester Code</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DataRow row in Model.Rows)
+        {
+            <tr>
+                <!-- Student ID -->
+                <td>
+                    @{
+                        var studentIDValue = row["studentID"];
+                        if (studentIDValue != DBNull.Value)
+                        {
+                            <text>@((int)studentIDValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- First Name -->
+                <td>
+                    @{
+                        var fNameValue = row["f_name"];
+                        if (fNameValue != DBNull.Value)
+                        {
+                            <text>@fNameValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Last Name -->
+                <td>
+                    @{
+                        var lNameValue = row["l_name"];
+                        if (lNameValue != DBNull.Value)
+                        {
+                            <text>@lNameValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Payment ID -->
+                <td>
+                    @{
+                        var paymentIDValue = row["payment_id"];
+                        if (paymentIDValue != DBNull.Value)
+                        {
+                            <text>@((int)paymentIDValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Amount -->
+                <td>
+                    @{
+                        var amountValue = row["amount"];
+                        if (amountValue != DBNull.Value)
+                        {
+                            <text>@((int)amountValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Deadline -->
+                <td>
+                    @{
+                        var deadlineValue = row["deadline"];
+                        if (deadlineValue != DBNull.Value)
+                        {
+                            <text>@((DateTime)deadlineValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Installments -->
+                <td>
+                    @{
+                        var installmentsValue = row["n_installments"];
+                        if (installmentsValue != DBNull.Value)
+                        {
+                            <text>@((int)installmentsValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Status -->
+                <td>
+                    @{
+                        var statusValue = row["status"];
+                        if (statusValue != DBNull.Value)
+                        {
+                            <text>@statusValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Fund Percentage -->
+                <td>
+                    @{
+                        var fundPercentageValue = row["fund_percentage"];
+                        if (fundPercentageValue != DBNull.Value)
+                        {
+                            <text>@((decimal)fundPercentageValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Start Date -->
+                <td>
+                    @{
+                        var startDateValue = row["startdate"];
+                        if (startDateValue != DBNull.Value)
+                        {
+                            <text>@((DateTime)startDateValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Semester Code -->
+                <td>
+                    @{
+                        var semesterCodeValue = row["semester_code"];
+                        if (semesterCodeValue != DBNull.Value)
+                        {
+                            <text>@semesterCodeValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+@Html.ActionLink("Back to Admin Dashboard", "AdminDashboard", "Admin", null, new { @class = "btn btn-secondary" })

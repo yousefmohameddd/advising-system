@@ -1,0 +1,38 @@
+﻿@model DatabaseProject.Models.Student_Phone
+
+@{
+    ViewBag.Title = "Phone_numbers";
+}
+
+<h2>Phone_numbers</h2>
+
+@using (Html.BeginForm("addphone", "Student", FormMethod.Post))
+{
+        @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.phone_number, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.phone_number, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.phone_number, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add" class="btn btn-default  btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="button" value="Back" class="btn btn-primary " onclick="window.location.href = 'Student_Dashboard';" />
+    </div>
+</div>

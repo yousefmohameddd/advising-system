@@ -1,0 +1,73 @@
+﻿
+@using System.Data
+@using System.Data.SqlClient
+
+@model DataTable
+
+<h2>Semester Offered Courses</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Course ID</th>
+            <th>Name</th>
+            <th>Semester Code</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DataRow row in Model.Rows)
+        {
+            <tr>
+                <!-- Course ID -->
+                <td>
+                    @{
+                        var courseIDValue = row["course_id"];
+                        if (courseIDValue != DBNull.Value)
+                        {
+                            <text>@((int)courseIDValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Name -->
+                <td>
+                    @{
+                        var nameValue = row["name"];
+                        if (nameValue != DBNull.Value)
+                        {
+                            <text>@nameValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Semester Code -->
+                <td>
+                    @{
+                        var semesterCodeValue = row["semester_code"];
+                        if (semesterCodeValue != DBNull.Value)
+                        {
+                            <text>@semesterCodeValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+@Html.ActionLink("Back to Admin Dashboard", "AdminDashboard", "Admin", null, new { @class = "btn btn-secondary" })
+

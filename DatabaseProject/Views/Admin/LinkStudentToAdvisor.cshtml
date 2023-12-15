@@ -1,0 +1,36 @@
+﻿@model   database.Models.LinkStudentToAdvisor
+
+@{
+    ViewBag.Title = "LinkStudentToAdvisor";
+}
+
+<h2>Link Student to Course</h2>
+
+@using (Html.BeginForm("LinkStudentToAdvisor", "Admin", FormMethod.Post))
+{
+    @Html.LabelFor(model => model.StudentID)
+    @Html.TextBoxFor(model => model.StudentID)
+    <br />
+
+    @Html.LabelFor(model => model.AdvisorID)
+    @Html.TextBoxFor(model => model.AdvisorID)
+    <br />
+
+    
+
+    <input type="submit" value="Link Advisor to Student" />
+
+
+    if (!ViewData.ModelState.IsValid || ViewBag.ErrorMessage != null)
+    {
+        <p class="text-danger">Please fix the validation errors.</p>
+    }
+
+    if (TempData["SuccessMessage"] != null)
+    {
+        <p class="text-success">@TempData["SuccessMessage"]</p>
+    }
+}
+
+
+@Html.ActionLink("Back to Admin Dashboard", "AdminDashboard", "Admin", null, new { @class = "btn btn-secondary" })

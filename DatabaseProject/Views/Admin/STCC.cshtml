@@ -1,0 +1,150 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+
+@model DataTable
+
+<h2>Students's Transcripts</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Student First Name</th>
+            <th>Student Last Name</th>
+            <th>Course ID</th>
+            <th>Course Name</th>
+            <th>Exam Type</th>
+            <th>Grade</th>
+            <th>Semester Code</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DataRow row in Model.Rows)
+        {
+            <tr>
+                <!-- Student ID -->
+                <td>
+                    @{
+                        var studentIDValue = row["student_id"];
+                        if (studentIDValue != DBNull.Value)
+                        {
+                            <text>@((int)studentIDValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- First Name -->
+                <td>
+                    @{
+                        var fNameValue = row["f_name"];
+                        if (fNameValue != DBNull.Value)
+                        {
+                            <text>@fNameValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Last Name -->
+                <td>
+                    @{
+                        var lNameValue = row["l_name"];
+                        if (lNameValue != DBNull.Value)
+                        {
+                            <text>@lNameValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Course ID -->
+                <td>
+                    @{
+                        var courseIDValue = row["course_id"];
+                        if (courseIDValue != DBNull.Value)
+                        {
+                            <text>@((int)courseIDValue)</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Name -->
+                <td>
+                    @{
+                        var nameValue = row["name"];
+                        if (nameValue != DBNull.Value)
+                        {
+                            <text>@nameValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Exam Type -->
+                <td>
+                    @{
+                        var examTypeValue = row["exam_type"];
+                        if (examTypeValue != DBNull.Value)
+                        {
+                            <text>@examTypeValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Grade -->
+                <td>
+                    @{
+                        var gradeValue = row["grade"];
+                        if (gradeValue != DBNull.Value)
+                        {
+                            <text>@gradeValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+                <!-- Semester Code -->
+                <td>
+                    @{
+                        var semesterCodeValue = row["semester_code"];
+                        if (semesterCodeValue != DBNull.Value)
+                        {
+                            <text>@semesterCodeValue</text>
+                        }
+                        else
+                        {
+                            <text>NULL</text>
+                        }
+                    }
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+@Html.ActionLink("Back to Admin Dashboard", "AdminDashboard", "Admin", null, new { @class = "btn btn-secondary" })
