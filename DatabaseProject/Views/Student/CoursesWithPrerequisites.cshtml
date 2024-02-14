@@ -1,0 +1,34 @@
+﻿@model IEnumerable<DatabaseProject.Models.PrerequisitesCourses>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="button" value="Back" class="btn btn-primary " onclick="window.location.href = 'Student_Dashboard';" />
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.course.course_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prerequisite.course_id)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.course.course_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prerequisite.course_id)
+        </td>
+        
+    </tr>
+}
+
+</table>

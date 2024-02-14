@@ -1,0 +1,82 @@
+﻿@model IEnumerable<DatabaseProject.Models.GradPlanCourse>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="button" value="Back" class="btn btn-primary " onclick="window.location.href = 'Student_Dashboard';" />
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.gradPlan.student.student_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gradPlan.student.f_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gradPlan.student.l_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gradPlan.plan_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.course.course_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.course.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gradPlan.semester_code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gradPlan.expected_grad_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gradPlan.semester_credit_hours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gradPlan.advisor.advisor_id)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.gradPlan.student.student_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gradPlan.student.f_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gradPlan.student.l_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gradPlan.plan_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.course.course_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.course.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gradPlan.semester_code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gradPlan.expected_grad_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gradPlan.semester_credit_hours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gradPlan.advisor.advisor_id)
+            </td>
+        
+        </tr>
+    }
+
+</table>

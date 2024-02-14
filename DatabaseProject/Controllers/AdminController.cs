@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Configuration;
-using database.Models;
-using System.Reflection;
-using System.Security.Cryptography;
-using DatabaseM3.Models;
+using DatabaseProject.Models;
 
-namespace database.Controllers
+namespace DatabaseProject.Controllers
 {
     public class AdminController : Controller
     {

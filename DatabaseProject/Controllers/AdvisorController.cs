@@ -89,9 +89,12 @@ namespace AdvisorProject.Controllers
             ViewData["requestData"] = new SelectList(getAllRequests(), "request_id", "request_id");
             return View();
         }
-        public ActionResult meshview()
+        public ActionResult Return()
         {
-            return View();
+            HttpCookie authCookie = new HttpCookie("advisorData");
+            authCookie.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Add(authCookie);
+            return RedirectToAction("./Main_Page");
         }
 
         public ActionResult Logout()
@@ -449,7 +452,8 @@ namespace AdvisorProject.Controllers
                         con.Close();
                         if (success <= 0)
                         {
-                            TempData["ErrorMessage"] = "Unable to create graduation plan as the student has less than 157 acquired hours";
+                            TempData["ErrorMessage"] = "Unable to create graduation plan as the student has less than 157 acquired hours" +
+                                " or there already exists a graduation plan for this student";
                             return RedirectToAction("./CreateGraduationPlan");
                         }
                         else

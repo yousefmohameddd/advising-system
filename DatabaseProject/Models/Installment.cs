@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace DatabaseM3.Models
+namespace DatabaseProject.Models
 {
     public class Installment
     {

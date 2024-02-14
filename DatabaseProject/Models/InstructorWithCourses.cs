@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace database.Models
+namespace DatabaseProject.Models
 {
     public class InstructorWithCourses
     {

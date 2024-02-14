@@ -180,12 +180,15 @@
     <Compile Include="Models\GradPlanCourse.cs" />
     <Compile Include="Models\Graduation_Plan.cs" />
     <Compile Include="Models\Installment.cs" />
+    <Compile Include="Models\Instructor.cs" />
     <Compile Include="Models\InstructorWithCourses.cs" />
     <Compile Include="Models\LinkInstructorView.cs" />
     <Compile Include="Models\LinkStudentToAdvisor.cs" />
     <Compile Include="Models\LinkStudentToCourse.cs" />
+    <Compile Include="Models\MakeUp_Exam.cs" />
     <Compile Include="Models\Make_up.cs" />
     <Compile Include="Models\PendingRequests.cs" />
+    <Compile Include="Models\PrerequisitesCourses.cs" />
     <Compile Include="Models\Request.cs" />
     <Compile Include="Models\RequestSemesterModel.cs" />
     <Compile Include="Models\Semester.cs" />
@@ -197,6 +200,7 @@
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentCourseViewModel.cs" />
     <Compile Include="Models\StudentO.cs" />
+    <Compile Include="Models\Student_Instructor_Course_Take.cs" />
     <Compile Include="Models\Student_Payment.cs" />
     <Compile Include="Models\Student_Phone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -319,6 +323,16 @@
     <Content Include="Views\Advisor\ViewRequests.cshtml" />
     <Content Include="Views\Advisor\ViewStudents.cshtml" />
     <Content Include="Views\Advisor\ViewStudentsOnMajorResult.cshtml" />
+    <Content Include="Views\Student\ChooseInstructorView.cshtml" />
+    <Content Include="Views\Student\CoursesWithPrerequisites.cshtml" />
+    <Content Include="Views\Student\CourseWithExamDetails.cshtml" />
+    <Content Include="Views\Student\CourseWithSlotDetails.cshtml" />
+    <Content Include="Views\Student\First_MakeupView.cshtml" />
+    <Content Include="Views\Student\GradPlanView.cshtml" />
+    <Content Include="Views\Student\InstallmentView.cshtml" />
+    <Content Include="Views\Student\Second_MakeupView.cshtml" />
+    <Content Include="Views\Student\SlotsCourseInstructor.cshtml" />
+    <Content Include="Views\Student\SlotsView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

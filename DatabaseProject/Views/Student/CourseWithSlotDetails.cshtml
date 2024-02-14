@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DatabaseProject.Models.Slot>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="button" value="Back" class="btn btn-primary " onclick="window.location.href = 'Student_Dashboard';" />
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.course.course_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.course.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.slot_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.day)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.instructor.name)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.course.course_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.course.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.slot_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.day)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.instructor.name)
+        </td>
+    </tr>
+}
+
+</table>
